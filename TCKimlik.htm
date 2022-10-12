@@ -29,10 +29,10 @@
 <p id=out></p>
 <hr />
 
-<b>Örnek kod</b>
+<b>97 Eklenmiş hali:</b>
 <style> /* CSS code in use */
     body { max-width: 440px; }
-    #sample { overflow-x: auto; }
+    #sample2 { overflow-x: auto; }
     #out2 {
         font-size: 18px;
         background: rgb(82, 37, 108);
@@ -43,12 +43,6 @@
   </style>
 <pre id=sample></pre>
 <hr />
-<p>Ref: <a href="https://www.wikiwand.com/tr/T.C._Kimlik_Numaras%C4%B1" 
-   target="NewTab">T.C. Kimlik -- Vikipedia</a><br>
-   <a href="https://matemacik.blogspot.com/2020/03/tc-kimlik-numaras.html"
-   target="NewTab">Matemacik -- yöntem burada</a><br>
-   <a href="https://en.wikipedia.org/wiki/International_Bank_Account_Number#Validating_the_IBAN" target="NewTab">Validating the IBAN</a>
-</p>
 
 <!-- <script src="../util/Util.js"></script> -->
 <script>
@@ -113,26 +107,35 @@ function add97()
 { 
     let v = kimlik.value.replaceAll(/\s/g, '')
     let num='';
-    let counterNum=0;
     let baskisim='';
-    let counterBas=0;
     let flag=0;
+    let charAt9=0;
     for(let i = 0; i<v.length;i++)
     {
         if(v[i] == '9'){
             flag=1;
-        }
-        if(flag==1)
-        {
-            num= num+ v.charAt(i);
-        }else if(v[i] != ' ')
-        {
-            baskisim+=v.charAt(i);
+            charAt9=i;
+            break;
         }
     }
-    let myNum= Number(v)+97
+    if(flag==1)
+    {
+        num=v.substring(charAt9-2)
+        baskisim=v.substring(0,charAt9-2)
+    }
+    else
+    {
+        num=v.substring(v.length-4)
+        baskisim=v.substring(0,v.length-2)
+    }
+    let myNum=Number(num)+97
     let newNum = baskisim+String(myNum)
-    sample.innerText=newNum
+    console.log(v)
+    console.log(baskisim)
+    console.log(myNum)
+    out.innerText=out.innerText+"\nAdded 97:"+newNum
+    /*
+    console.log(newNum)*/
 }
 </script>
 <script src="/JS/navbar.js"></script>

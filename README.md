@@ -93,5 +93,3 @@
                     <a href="https://eloquentjavascript.net/04_data.html#h_TcUD2vzyMe">Array Methods</a><br>
                 </td>
             </tr>
-
-</body></html>

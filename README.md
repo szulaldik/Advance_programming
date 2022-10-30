@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <meta name="viewport" content="width=device-width">
@@ -48,7 +47,6 @@
     </head>
 
     <body>
-        <h1 id="baslik">Advanced Programming </h1> 
         <h2 id="Github page"><a href="https://github.com/szdik/Advance_programming">Repository</a></h2>
         <table>
             <tbody><tr>

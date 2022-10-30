@@ -47,7 +47,7 @@
     </head>
 
     <body>
-        <h2 id="Github page"><a href="https://github.com/szdik/Advance_programming">Repository</a></h2>
+        <h2 id="Github page"><a href="https://github.com/szulaldik/Advance_programming">Repository</a></h2>
         <table>
             <tbody><tr>
                 <th>Classworks</th>
@@ -56,27 +56,27 @@
             <tr>
                 <td>CW0</td>
                 <td>
-                    <a href="https://szdik.github.io/Advance_programming/Counting.html">Browser_Tools</a>                    
+                    <a href="https://szulaldik.github.io/Advance_programming/Counting.html">Browser_Tools</a>                    
                 </td>
             </tr>
             <tr>
                 <td>CW1</td>
                 <td>
-                    <a href="https://szdik.github.io/Advance_programming/TCKimlik.html">IBAN Verification</a> <br>
+                    <a href="https://szulaldik.github.io/Advance_programming/TCKimlik.html">IBAN Verification</a> <br>
                 </td>
             </tr>
 
             <tr>
                 <td>CW2</td>
                 <td>
-                    <a href="https://szdik.github.io/Advance_programming/ObjectList.html">Text to Object</a>
+                    <a href="https://szulaldik.github.io/Advance_programming/ObjectList.html">Text to Object</a>
                 </td>
             </tr>
 
             <tr>
                 <td>CW3</td>
                 <td>
-                    <a href="https://szdik.github.io/Advance_programming/Inspector.html">Objects Inspector</a>
+                    <a href="https://szulaldik.github.io/Advance_programming/Inspector.html">Objects Inspector</a>
                 </td>
             </tr>   
         </tbody></table>
@@ -89,7 +89,7 @@
             <tr>
                 <td>HW1</td>
                 <td>
-                    <a href="https://szdik.github.io/Advance_programming/Data Analysis.html">Data Analysis</a><br>
+                    <a href="https://szulaldik.github.io/Advance_programming/Data Analysis.html">Data Analysis</a><br>
                     <a href="https://eloquentjavascript.net/04_data.html#h_TcUD2vzyMe">Array Methods</a><br>
                 </td>
             </tr>

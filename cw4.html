@@ -53,7 +53,7 @@ function check() {
     fetch(url.value).then(r => 
       resp.innerText = r.ok? 'OK' :'404'
     ).catch(e => 
-      resp.innerText = e
+      resp.innerText = '404'
     )
 }
     title.innerText = document.title;

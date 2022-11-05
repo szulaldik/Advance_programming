@@ -78,7 +78,14 @@
                 <td>
                     <a href="https://szulaldik.github.io/Advance_programming/Inspector.html">Objects Inspector</a>
                 </td>
-            </tr>   
+            </tr>
+            
+            <tr>
+                <td>CW3</td>
+                <td>
+                    <a href="https://szulaldik.github.io/Advance_programming/cw4.html">Fetching Remote Files</a>
+                </td>
+            </tr>            
         </tbody></table>
         <table>
             

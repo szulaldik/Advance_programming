@@ -25,6 +25,7 @@
 <p title="Battery level (integer)">
   Battery level: <span id="lev"></span>
 </p>
+<progress id="bar" value="0" max="100"></progress>
 <p title="Online status">
   Online Status: <span id="online_status"></span>
 </p>
@@ -36,28 +37,37 @@
 
 <script>
 "use strict";
+  function init() {
 
+    navigator.getBattery().then(b => {
 
-
-function init() {
-  //complete the code below
-      navigator.getBattery().then(b => {
-          statu.innerText =(b.charging ? "Charging..." : "Discharging...")
-          let time=b.dischargingTime/3600   
-          remain_time.innerText=time.toFixed(2)+" hours Remaining" 
-          lev.innerText = 100*b.level+'%' 
-        
-     
-          onkeydown = () => key.innerText = event.key
-          onkeyup = () => key.innerText = event.key
-          
-          
-      });
+      let lvlchng = () => {
+        lev.innerText = 100*b.level+'%' 
+        bar.value=100*b.level
+        let time = (b.charging) ? b.chargingTime/3600 : b.dischargingTime/3600;
+        remain_time.innerText=time+" hours Remaining" 
+      }      
+      lvlchng();
+      b.onlevelchange = lvlchng;
       
-      online_status.innerText = (navigator.onLine ? "online" : "offline")
-   
-  }
+      let chargingstatu = () => {
+        statu.innerText = (b.charging) ? "Charging..." : "Discharging...";
+      }
+      chargingstatu();
+      b.onchargingchange = chargingstatu;
+    });
+    online_status.innerText = (window.navigator.onLine)? "connected -- online" : "disconnected -- offline";
+    window.addEventListener("online", () => {
+      online_status.innerText = "connected -- online";
+    });
+    window.addEventListener("offline", () => {
+      online_status.innerText = "disconnected -- offline";
+    });
+    window.onkeydown = (evt) => {
+      key.innerText = evt.key;
+    };
 
+}
       
     title.innerText = document.title;
     init();

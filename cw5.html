@@ -45,7 +45,7 @@
         lev.innerText = 100*b.level+'%' 
         bar.value=100*b.level
         let time = (b.charging) ? b.chargingTime/3600 : b.dischargingTime/3600;
-        remain_time.innerText=time+" hours Remaining" 
+        remain_time.innerText=time.toFixed(2)+" hours Remaining" 
       }      
       lvlchng();
       b.onlevelchange = lvlchng;

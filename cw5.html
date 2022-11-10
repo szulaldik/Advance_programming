@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://blm305.github.io/2022/work/fetch -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://blm-fsmvu.github.io/305/images/icon192.png">
+    <title>CW5 </title>
+
+  <style> /* CSS comment */
+    body { max-width: 440px; }
+    #url { width: 190px; }
+    span, #url { color: blue; }
+  </style>
+</head>
+
+<body>   <!-- HTML comment: Modify all items marked xxx -->
+
+<h2 id="title" title="Put your name here">CW5</h2>
+<p title="Battery status">
+  Battery Status: <span id="statu">xxx</span>
+</p>
+<p title="Remain Time">
+  <span id="remain_time"></span>
+</p>
+<p title="Battery level (integer)">
+  Battery level: <span id="lev"></span>
+</p>
+<p title="Online status">
+  Online Status: <span id="online_status"></span>
+</p>
+<p title="Keyboard">
+  Keyboard: <span id="key"></span>
+</p>
+<hr>
+
+
+<script>
+"use strict";
+
+
+
+function init() {
+  //complete the code below
+      navigator.getBattery().then(b => {
+          statu.innerText =(b.charging ? "Charging..." : "Discharging...")
+          let time=b.dischargingTime/3600   
+          remain_time.innerText=time.toFixed(2)+" hours Remaining" 
+          lev.innerText = 100*b.level+'%' 
+        
+     
+          onkeydown = () => key.innerText = event.key
+          onkeyup = () => key.innerText = event.key
+          
+          
+      });
+      
+      online_status.innerText = (navigator.onLine ? "online" : "offline")
+   
+  }
+
+      
+    title.innerText = document.title;
+    init();
+</script>
+
+
+
+</body></html>

@@ -2,7 +2,7 @@
         
         <meta name="viewport" content="width=device-width">
         <title>Advanced Programming</title>
-        
+        <link rel="icon" sizes="192x192" href="https://szulaldik.github.io/Advance_programming/flying-star.png">
             
         <style>
             table {

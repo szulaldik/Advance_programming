@@ -25,7 +25,6 @@
 <p title="Battery level (integer)">
   Battery level: <span id="lev"></span>
 </p>
-<progress id="bar" value="0" max="100"></progress>
 <p title="Online status">
   Online Status: <span id="online_status"></span>
 </p>
@@ -43,7 +42,6 @@
 
       let lvlchng = () => {
         lev.innerText = 100*b.level+'%' 
-        bar.value=100*b.level
         let time = (b.charging) ? b.chargingTime/3600 : b.dischargingTime/3600;
         remain_time.innerText=time.toFixed(2)+" hours Remaining" 
       }      

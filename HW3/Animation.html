@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" sizes="192x192" href="https://szulaldik.github.io/Advance_programming/flying-star.png">
+    <title>HW3</title>
+    <style> 
+        button 
+        {
+            width: 70px;
+            border: 0vmax;
+            color:white;
+            background-color: rgb(5, 54, 85);
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 450px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            position: relative;
+            
+        }
+        h2 
+        {
+          color: rgb(5, 54, 85);
+        }
+        img
+        {
+            position: fixed;
+            max-width: 300px;
+        }
+      </style>
+</head>
+
+<body>
+    <h2 id="title">JS Animation</h2>
+    <img id="img">  
+
+    <button onclick="start()">start</button>
+    <button onclick="pause()">pause</button>
+    <button onclick="stop()">stop</button>
+    <button onclick="next()">next</button>
+    <button onclick="prev()">prev</button>
+
+
+
+<script>
+    let id;
+    let current = 0;
+    let url = "https://szulaldik.github.io/Advance_programming/runners/Run__00";
+    var running = true;
+    var passive =false;
+
+    const img = document.getElementById("img");
+
+    function start() {
+        running = true;
+        let i = 0;
+        if(!id){
+          id=setInterval(function(){
+            if(running){
+                if(i>=9){
+                    i = 0;
+                }
+                fetch(url + i+ ".png").then(r=>r.blob()).then(blob => {img.src = URL.createObjectURL(blob);});
+                current = i;
+            }
+            i++;
+          },100)
+        }
+        
+    }
+    function pause() {
+        if(running){
+            running=false;
+            passive=true;
+        }else{
+            running=true;
+        }
+        let i = current;   
+    }
+
+    function stop() {
+        running=false;  
+        passive=true; 
+    }
+
+    function next(){
+        if(passive){
+            current++;
+            if(current > 9) {
+                current = 0;
+            }
+            fetch(url + current+ ".png").then(r=>r.blob()).then(blob => {img.src = URL.createObjectURL(blob);});
+        }
+    }
+
+    function prev(){
+        if(passive){
+            current--;
+            if(current < 0) {
+                current = 9;
+            }
+            fetch(url + current+ ".png").then(r=>r.blob()).then(blob => {img.src = URL.createObjectURL(blob);});
+        }
+    }
+    
+</script>
+</body>
+</html>

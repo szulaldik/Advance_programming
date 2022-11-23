@@ -108,3 +108,9 @@
                     <a href="https://eloquentjavascript.net/04_data.html#h_TcUD2vzyMe">Array Methods</a><br>
                 </td>
             </tr>
+            <tr>
+                <td>HW3</td>
+                <td>
+                    <a href="https://szulaldik.github.io/Advance_programming/HW3/Animation.html">Fetch & Animations</a>
+                </td>
+            </tr>

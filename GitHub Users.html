@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://szulaldik.github.io/Advance_programming/flying-star.png">
+    <title>GitHub Users</title>
+  <style>
+    body {
+        max-width: 400px;
+    }
+    img {
+        padding-right: 22px; 
+        width: 310px;
+        float: left;
+    }
+    pre { overflow-x: auto; }
+    #out { color: rgb(9, 9, 17); }
+    #err { color: red; }
+    #lim {
+        position: absolute;
+        top: 40px; right: 5px;
+        font-family: Verdana, Geneva, sans-serif;
+        font-size: smaller;
+    }
+  
+  </style>
+</head>
+
+<body>
+
+<h2 id="title">GitHub Users</h2>
+<input type="search" id="usr" value="szulaldik" onchange="readUser()">
+<p id="out">
+  <img id="avatar" sizes=720x720 alt="Avatar for the selected user" src="./GitHub Users_files/91333047">
+  <a id="repoLink" target="NewTab" href="https://szulaldik.github.io/"></a><br>
+  <b id="adi"></b><br>
+  <span id="kul_adi"></span><br>
+  <span id="company"></span><br>
+  <span id="location"></span><br>
+  <span id="mail"></span><br>
+</p>
+<p id="err" hidden=""></p>
+<div id="lim" title="Rate used / Rate limit">0/60</div>
+<hr>
+<b>Sample code</b>
+<pre id="sample">
+  async function readUser() {
+    const URL = "https://api.github.com/users/"
+    let u = await toJSON(URL+usr.value)
+    if (!u || !u.login) return
+    out.hidden = 0; err.hidden = 1
+    //start with the avatar
+    avatar.src = u.avatar_url
+    //name and location
+    let s = (u.name || u.login)
+    adi.innerText = u.name
+    kul_adi.innerText = u.login 
+    console.log(s)
+
+    if(u.company) {
+      company.innerText = u.company;
+    }else{
+      company.innerText="";
+    }
+
+    if(u.location) {
+      location.innerText = u.location;
+    }else{
+      location.innerText="";
+    }
+    //link to GitHub 
+    let h = "https://"+u.login+".github.io/"
+    repoLink.href = h
+    repoLink.innerText = h
+    
+    showRateLimit()
+}
+</pre>
+<hr>
+
+<script>
+"use strict";
+function error(e) {
+    err.innerText = e; console.error(e)
+    out.hidden = 1; err.hidden = 0
+    showRateLimit()
+}
+function exception(s) {
+  switch (s) {
+    case 403:
+      throw 'Rate limit exceeded'
+    case 404:
+      throw usr.value+' not found'
+    default:
+      throw 'Status '+s
+  }
+}
+async function toJSON(url) {
+  try {
+    let r = await fetch(url)
+    if (!r.ok) exception(r.status)
+    return r.json()
+  } catch (e) {
+    error(e)
+  }
+}
+async function readUser() {
+    const URL = "https://api.github.com/users/"
+    let u = await toJSON(URL+usr.value)
+    if (!u || !u.login) return
+    out.hidden = 0; err.hidden = 1
+    //start with the avatar
+    avatar.src = u.avatar_url
+    //name and location
+
+    if(u.company) {
+      company.innerText = u.company;
+      console.log(u.company)
+    }else{
+      company.innerText="";
+    }
+
+    if(u.location) {
+      company.innerText = company.innerText+"\n"+u.location;
+    }
+
+    let s = (u.name || u.login)
+    adi.innerText = u.name
+    kul_adi.innerText = u.login 
+    console.log(s)
+    //link to GitHub 
+    let h = "https://"+u.login+".github.io/"
+    repoLink.href = h
+    repoLink.innerText = h
+    
+    showRateLimit()
+}
+async function showRateLimit() {
+    const LIM="https://api.github.com/rate_limit"
+    let {rate} = await toJSON(LIM)
+    lim.innerText = rate.used+'/'+rate.limit
+}
+    title.innerText = document.title
+    sample.innerText = toJSON +'\n'+ readUser
+    readUser()
+</script>
+
+</body></html>

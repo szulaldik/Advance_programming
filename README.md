@@ -93,7 +93,12 @@
                     <a href="https://szulaldik.github.io/Advance_programming/cw5.html">Event Listeners</a>
                 </td>
             </tr> 
-            
+             <tr>
+                <td>CW6</td>
+                <td>
+                    <a href="https://szulaldik.github.io/Advance_programming/GitHub Users.html">Event Listeners</a>
+                </td>
+            </tr> 
         </tbody></table>
         <table>
             

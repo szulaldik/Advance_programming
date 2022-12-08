@@ -41,10 +41,6 @@
             }
         </style>
 
-        <script>
-            navigator.serviceWorker.register('sw.js')
-        </script>
-
     </head>
 
     <body>

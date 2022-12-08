@@ -71,7 +71,7 @@
             <tr>
                 <td>CW2</td>
                 <td>
-                    <a href="https://szulaldik.github.io/Advance_programming/cw2/List Of Objects.html">Text to Object</a>
+                    <a href="https://szulaldik.github.io/Advance_programming/cw2/List_of_Objects.html">Text to Object</a>
                 </td>
             </tr>
 

@@ -98,6 +98,12 @@
                 <td>
                     <a href="https://szulaldik.github.io/Advance_programming/GitHub Users.html">Event Listeners</a>
                 </td>
+            </tr>
+             <tr>
+                <td>CW7</td>
+                <td>
+                    <a href="https://szulaldik.github.io/Advance_programming/Open Weather.html">Open Weather API</a>
+                </td>
             </tr> 
         </tbody></table>
         <table>

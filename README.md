@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <meta name="viewport" content="width=device-width">
@@ -47,6 +48,7 @@
     </head>
 
     <body>
+        <h1 id="baslik">Advanced Programming </h1> 
         <h2 id="Github page"><a href="https://github.com/szulaldik/Advance_programming">Repository</a></h2>
         <table>
             <tbody><tr>
@@ -56,49 +58,48 @@
             <tr>
                 <td>CW0</td>
                 <td>
-                    <a href="https://szulaldik.github.io/Advance_programming/Counting.html">Browser_Tools</a>                    
+                    <a href="https://szulaldik.github.io/Advance_programming/cw0/Basit Sayac.html">Browser_Tools</a>                    
                 </td>
             </tr>
             <tr>
                 <td>CW1</td>
                 <td>
-                    <a href="https://szulaldik.github.io/Advance_programming/TCKimlik.html">IBAN Verification</a> <br>
+                    <a href="https://szulaldik.github.io/Advance_programming/cw1/IBAN verification.html">IBAN Verification</a> <br>
                 </td>
             </tr>
 
             <tr>
                 <td>CW2</td>
                 <td>
-                    <a href="https://szulaldik.github.io/Advance_programming/ObjectList.html">Text to Object</a>
+                    <a href="https://szulaldik.github.io/Advance_programming/cw2/List Of Objects.html">Text to Object</a>
                 </td>
             </tr>
 
             <tr>
                 <td>CW3</td>
                 <td>
-                    <a href="https://szulaldik.github.io/Advance_programming/Inspector.html">Objects Inspector</a>
+                    <a href="https://szulaldik.github.io/Advance_programming/cw3/Object Inspector.html">Objects Inspector</a>
                 </td>
-            </tr>
-            
+            </tr>   
+
             <tr>
                 <td>CW4</td>
                 <td>
-                    <a href="https://szulaldik.github.io/Advance_programming/cw4.html">Fetching Remote Files</a>
+                    <a href="https://szulaldik.github.io/Advance_programming/cw4/Fetching Remote Files.html">Fetching Remote Files</a>
                 </td>
             </tr> 
-            
-             <tr>
+            <tr>
                 <td>CW5</td>
                 <td>
-                    <a href="https://szulaldik.github.io/Advance_programming/cw5.html">Event Listeners</a>
+                    <a href="https://szulaldik.github.io/Advance_programming/cw5/Event Listeners.html">Event Listeners</a>
                 </td>
-            </tr> 
+            </tr>
              <tr>
                 <td>CW6</td>
                 <td>
-                    <a href="https://szulaldik.github.io/Advance_programming/GitHub Users.html">Event Listeners</a>
+                    <a href="https://szulaldik.github.io/Advance_programming/cw6/GitHub Users.html">Event Listeners</a>
                 </td>
-            </tr>
+            </tr> 
              <tr>
                 <td>CW7</td>
                 <td>
@@ -125,3 +126,4 @@
                     <a href="https://szulaldik.github.io/Advance_programming/HW3/Animation.html">Fetch & Animations</a>
                 </td>
             </tr>
+</body></html>

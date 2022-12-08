@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://szulaldik.github.io/Advance_programming/cw5.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://blm-fsmvu.github.io/305/images/icon192.png">
+    <title>CW5 </title>
+
+  <style> /* CSS comment */
+    body { max-width: 440px; }
+    #url { width: 190px; }
+    span, #url { color: blue; }
+  </style>
+</head>
+
+<body>   <!-- HTML comment: Modify all items marked xxx -->
+
+<h2 id="title" title="Put your name here">CW5</h2>
+<p title="Battery status">
+  Battery Status: <span id="statu">Charging...</span>
+</p>
+<p title="Remain Time">
+  <span id="remain_time">Infinity hours Remaining</span>
+</p>
+<p title="Battery level (integer)">
+  Battery level: <span id="lev">59%</span>
+</p>
+<p title="Online status">
+  Online Status: <span id="online_status">connected -- online</span>
+</p>
+<p title="Keyboard">
+  Keyboard: <span id="key"></span>
+</p>
+<hr>
+
+
+<script>
+"use strict";
+  function init() {
+
+    navigator.getBattery().then(b => {
+
+      let lvlchng = () => {
+        lev.innerText = 100*b.level+'%' 
+        let time = (b.charging) ? b.chargingTime/3600 : b.dischargingTime/3600;
+        remain_time.innerText=time.toFixed(2)+" hours Remaining" 
+      }      
+      lvlchng();
+      b.onlevelchange = lvlchng;
+      
+      let chargingstatu = () => {
+        statu.innerText = (b.charging) ? "Charging..." : "Discharging...";
+      }
+      chargingstatu();
+      b.onchargingchange = chargingstatu;
+    });
+    online_status.innerText = (window.navigator.onLine)? "connected -- online" : "disconnected -- offline";
+    window.addEventListener("online", () => {
+      online_status.innerText = "connected -- online";
+    });
+    window.addEventListener("offline", () => {
+      online_status.innerText = "disconnected -- offline";
+    });
+    window.onkeydown = (evt) => {
+      key.innerText = evt.key;
+    };
+
+}
+      
+    title.innerText = document.title;
+    init();
+</script>
+
+
+
+
+</body></html>

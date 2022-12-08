@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://szulaldik.github.io/Advance_programming/cw4.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://blm-fsmvu.github.io/305/images/icon192.png">
+    <title>CW4 </title>
+
+  <style> /* CSS comment */
+    body { max-width: 440px; }
+    #url { width: 190px; }
+    span, #url { color: blue; }
+  </style>
+</head>
+
+<body>   <!-- HTML comment: Modify all items marked xxx -->
+
+<h2 id="title" title="Put your name here">CW4</h2>
+<p title="navigator.platform">
+  Platform: <span id="plat">Win32</span>
+</p>
+<p title="Battery level (integer)">
+  Battery level: <span id="lev">%57.99999999999999</span>
+</p>
+<p title="Latitude/Longitude (4 digits)">
+  Location: <span id="loc">41.1000,28.9732</span>
+</p>
+<p title="Does the URL exist?">
+  URL <input type="url" id="url" value="https://szulaldik.github.io/Advance_programming/" onchange="check()"> <span id="resp">OK</span>
+</p>
+<hr>
+<b>Sample code</b>
+<pre id="sample">function init() {<br>//complete the code below<br>    plat.innerText = navigator.platform;<br>    navigator.geolocation<br>      .getCurrentPosition(p =&gt;<br>        loc.innerText = p.coords.latitude.toFixed(4)+","+p.coords.longitude.toFixed(4)<br>      );<br>    navigator.getBattery().then(b =&gt;<br>        lev.innerText = '%'+ (b.level*100)<br>      );<br>    check()<br>}<br>function check() {<br>//complete the code below<br>    fetch(url.value).then(r =&gt; <br>      resp.innerText = r.ok? 'OK' :'404'<br>    ).catch(e =&gt; <br>      resp.innerText = '404'<br>    )<br>}</pre>
+
+<hr>
+
+<script>
+"use strict";
+function init() {
+//complete the code below
+    plat.innerText = navigator.platform;
+    navigator.geolocation
+      .getCurrentPosition(p =>
+        loc.innerText = p.coords.latitude.toFixed(4)+","+p.coords.longitude.toFixed(4)
+      );
+    navigator.getBattery().then(b =>
+        lev.innerText = '%'+ (b.level*100)
+      );
+    check()
+}
+function check() {
+//complete the code below
+    fetch(url.value).then(r => 
+      resp.innerText = r.ok? 'OK' :'404'
+    ).catch(e => 
+      resp.innerText = '404'
+    )
+}
+    title.innerText = document.title;
+    sample.innerText = init+'\n'+check;
+    init();
+</script>
+
+
+
+
+</body></html>

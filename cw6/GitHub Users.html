@@ -34,12 +34,14 @@
 <p id="out">
   <img id="avatar" sizes="720x720" alt="Avatar for the selected user" src="./GitHub Users_files/115083072">
   <a id="repoLink" target="NewTab" href="https://szulaldik.github.io/">https://szulaldik.github.io/</a><br>
-  <b id="adi">Sümeyye Zülal Dik</b><br>
-  <span id="kul_adi">szulaldik</span><br>
-  <span id="company"><br>İstanbul</span><br>
-  <span id="location"></span><br>
-  <span id="mail"></span><br>
-</p>
+    <div>
+
+        <h2 id="adi">Sümeyye Zülal Dik</h2>
+        <b id="kul_adi">szulaldik</b>
+          <div id="company"></div>
+          <div id="loc"> </div>
+          <div id="mail"> </div>
+      </div>
 <p id="err" hidden=""></p>
 <div id="lim" title="Rate used / Rate limit">1/60</div>
 <hr>
@@ -84,14 +86,22 @@ async function readUser() {
 
     if(u.company) {
       company.innerText = u.company;
-      console.log(u.company)
     }else{
       company.innerText="";
     }
 
     if(u.location) {
-      company.innerText = company.innerText+"\n"+u.location;
+      loc.innerText = u.location;
+    }else{
+      loc.innerText="";
     }
+
+    if(u.mail) {
+      mail.innerText = u.mail;
+    }else{
+      mail.innerText="";
+    }
+
 
     let s = (u.name || u.login)
     adi.innerText = u.name

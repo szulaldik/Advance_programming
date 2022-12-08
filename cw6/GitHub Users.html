@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)https://szulaldik.github.io/Advance_programming/GitHub%20Users.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://szulaldik.github.io/Advance_programming/flying-star.png">
+    <title>GitHub Users</title>
+  <style>
+    body {
+        max-width: 400px;
+    }
+    img {
+        padding-right: 22px; 
+        width: 310px;
+        float: left;
+    }
+    pre { overflow-x: auto; }
+    #out { color: rgb(9, 9, 17); }
+    #err { color: red; }
+    #lim {
+        position: absolute;
+        top: 40px; right: 5px;
+        font-family: Verdana, Geneva, sans-serif;
+        font-size: smaller;
+    }
+  
+  </style>
+</head>
+
+<body>
+
+<h2 id="title">GitHub Users</h2>
+<input type="search" id="usr" value="szulaldik" onchange="readUser()">
+<p id="out">
+  <img id="avatar" sizes="720x720" alt="Avatar for the selected user" src="./GitHub Users_files/115083072">
+  <a id="repoLink" target="NewTab" href="https://szulaldik.github.io/">https://szulaldik.github.io/</a><br>
+  <b id="adi">Sümeyye Zülal Dik</b><br>
+  <span id="kul_adi">szulaldik</span><br>
+  <span id="company"><br>İstanbul</span><br>
+  <span id="location"></span><br>
+  <span id="mail"></span><br>
+</p>
+<p id="err" hidden=""></p>
+<div id="lim" title="Rate used / Rate limit">1/60</div>
+<hr>
+<b>Sample code</b>
+<pre id="sample">async function toJSON(url) {<br>  try {<br>    let r = await fetch(url)<br>    if (!r.ok) exception(r.status)<br>    return r.json()<br>  } catch (e) {<br>    error(e)<br>  }<br>}<br>async function readUser() {<br>    const URL = "https://api.github.com/users/"<br>    let u = await toJSON(URL+usr.value)<br>    if (!u || !u.login) return<br>    out.hidden = 0; err.hidden = 1<br>    //start with the avatar<br>    avatar.src = u.avatar_url<br>    //name and location<br><br>    if(u.company) {<br>      company.innerText = u.company;<br>      console.log(u.company)<br>    }else{<br>      company.innerText="";<br>    }<br><br>    if(u.location) {<br>      company.innerText = company.innerText+"\n"+u.location;<br>    }<br><br>    let s = (u.name || u.login)<br>    adi.innerText = u.name<br>    kul_adi.innerText = u.login <br>    console.log(s)<br>    //link to GitHub <br>    let h = "https://"+u.login+".github.io/"<br>    repoLink.href = h<br>    repoLink.innerText = h<br>    <br>    showRateLimit()<br>}</pre>
+<hr>
+
+<script>
+"use strict";
+function error(e) {
+    err.innerText = e; console.error(e)
+    out.hidden = 1; err.hidden = 0
+    showRateLimit()
+}
+function exception(s) {
+  switch (s) {
+    case 403:
+      throw 'Rate limit exceeded'
+    case 404:
+      throw usr.value+' not found'
+    default:
+      throw 'Status '+s
+  }
+}
+async function toJSON(url) {
+  try {
+    let r = await fetch(url)
+    if (!r.ok) exception(r.status)
+    return r.json()
+  } catch (e) {
+    error(e)
+  }
+}
+async function readUser() {
+    const URL = "https://api.github.com/users/"
+    let u = await toJSON(URL+usr.value)
+    if (!u || !u.login) return
+    out.hidden = 0; err.hidden = 1
+    //start with the avatar
+    avatar.src = u.avatar_url
+    //name and location
+
+    if(u.company) {
+      company.innerText = u.company;
+      console.log(u.company)
+    }else{
+      company.innerText="";
+    }
+
+    if(u.location) {
+      company.innerText = company.innerText+"\n"+u.location;
+    }
+
+    let s = (u.name || u.login)
+    adi.innerText = u.name
+    kul_adi.innerText = u.login 
+    console.log(s)
+    //link to GitHub 
+    let h = "https://"+u.login+".github.io/"
+    repoLink.href = h
+    repoLink.innerText = h
+    
+    showRateLimit()
+}
+async function showRateLimit() {
+    const LIM="https://api.github.com/rate_limit"
+    let {rate} = await toJSON(LIM)
+    lim.innerText = rate.used+'/'+rate.limit
+}
+    title.innerText = document.title
+    sample.innerText = toJSON +'\n'+ readUser
+    readUser()
+</script>
+
+</body></html>

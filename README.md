@@ -97,13 +97,13 @@
              <tr>
                 <td>CW6</td>
                 <td>
-                    <a href="https://szulaldik.github.io/Advance_programming/cw6/GitHub Users.html">Event Listeners</a>
+                    <a href="https://szulaldik.github.io/Advance_programming/cw6/GitHub Users.html">GitHub Users API</a>
                 </td>
             </tr> 
              <tr>
                 <td>CW7</td>
                 <td>
-                    <a href="https://szulaldik.github.io/Advance_programming/Open Weather.html">Open Weather API</a>
+                    <a href="https://szulaldik.github.io/Advance_programming/cw7/Open Weather.html">Open Weather API</a>
                 </td>
             </tr> 
         </tbody></table>
@@ -116,7 +116,7 @@
             <tr>
                 <td>HW1</td>
                 <td>
-                    <a href="https://szulaldik.github.io/Advance_programming/Data Analysis.html">Data Analysis</a><br>
+                    <a href="https://szulaldik.github.io/Advance_programming/HW1/Data Analysis.html">Data Analysis</a><br>
                     <a href="https://eloquentjavascript.net/04_data.html#h_TcUD2vzyMe">Array Methods</a><br>
                 </td>
             </tr>

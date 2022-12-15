@@ -101,6 +101,12 @@
                 <td>
                     <a href="https://szulaldik.github.io/Advance_programming/cw7/Open Weather.html">Open Weather API</a>
                 </td>
+            </tr>
+            <tr>
+                <td>CW8</td>
+                <td>
+                    <a href="https://szulaldik.github.io/Advance_programming/cw8/OpenStreetMap.html">Open Weather API</a>
+                </td>
             </tr> 
         </tbody></table>
         <table>

@@ -1,7 +1,7 @@
 const CACHE ='prjct'
 const FILES = [ 'index.html', 'images/flying-star.png', 'images/bear.png', 'images/bee.png',
 'images/bird.png', 'images/cat.png', 'images/corgi.png', 'images/flamingo.png', 'images/penguin.png',
-'images/owl.png', 'images/soru.jpg', 'images/clown-fish.png', 'images/lion.png','./']
+'images/owl.png', 'images/soru.jpg', 'images/clown-fish.png', 'images/lion.png','sw.js', 'manifest.json', './']
 function installCB(e) {
   e.waitUntil(
     caches.open(CACHE)

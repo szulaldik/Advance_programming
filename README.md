@@ -131,7 +131,7 @@
             <tr>
                 <td>Project</td>
                 <td>
-                    <a href="https://szulaldik.github.io/AdvanceProje/prjct/index.html">Memory Game</a>
+                    <a href="https://szulaldik.github.io/Advance_programming/prjct/index.html">Memory Game</a>
                 </td>
             </tr>
 </body></html>

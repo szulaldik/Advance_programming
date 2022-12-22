@@ -1,0 +1,352 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width">
+    <title>Memory Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.4">
+    <link rel="icon" href="images/flying-star.png">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body {
+            background-color: rgb(43, 147, 226);
+        }
+
+        h1 {
+            margin-top: 40px;
+            margin-bottom: 0;
+            text-align: center;
+            color: #ffffff;
+            font-size: 60px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            margin-bottom: 0;
+            text-align: center;
+            color: #ffffff;
+            font-size: 40px;
+        }
+
+        .baslangic {
+            text-align: center;
+
+        }
+
+        .buttons {
+            text-align: center;
+            background: rgb(240, 154, 35);
+            color: white;
+            border-radius: 2rem;
+            border-color: rgb(233, 141, 13);
+            border-style: solid;
+            padding: 1mm;
+            cursor: pointer;
+        }
+
+        .game {
+            width: 1000px;
+            margin: auto;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .memory-card {
+            width: 190px;
+            height: 190px;
+            margin: 25px;
+            visibility: visible;
+            transform: scale(1);
+            transform-style: preserve-3d;
+            transition: transform .5s;
+        }
+
+        .memory-card:active {
+            transform: scale(0.85);
+            transition: transform .2s;
+        }
+
+        .memory-card.flip {
+            transform: rotateX(180deg);
+        }
+
+        .front-face,
+        .back-face {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 5px;
+            backface-visibility: hidden;
+        }
+
+        .front-face {
+            transform: rotateX(180deg);
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: DodgerBlue;
+        }
+
+
+        #skor {
+            text-align: center;
+            font-size: 45px;
+            color: rgb(242, 242, 235);
+            font-style: oblique;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <h1>MEMORY GAME</h1>
+    <center>
+        <div class="baslangic">
+            <h2>Choose a level to start:</h2>
+            <button id="easy" class="buttons" onclick="start_game(8)">
+                <h2>Easy</h2>
+            </button>
+            <button id="medium" class="buttons" onclick="start_game(12)">
+                <h2>Medium</h2>
+            </button>
+            <button id="hard" class="buttons" onclick="start_game(20)">
+                <h2>Hard</h2>
+            </button>
+        </div>
+        <div id="skor" style="display: block; visibility: hidden;">Skor: 0</div>
+
+    </center>
+    <br>
+
+
+    <div class="game">
+
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+        <div class="memory-card" style="visibility: hidden; order: inherit;">
+            <img class="front-face">
+            <img class="back-face" src="images/soru.jpg">
+        </div>
+    </div>
+
+    <script>
+
+        navigator.serviceWorker.register('sw.js');
+            
+        var c;
+        const list = ["cat.png", "cat.png", "flamingo.png", "flamingo.png", "owl.png", "owl.png", "bee.png", "bee.png", "bird.png", "bird.png",
+            "lion.png", "lion.png", "clown-fish.png", "clown-fish.png", "corgi.png", "corgi.png", "bear.png", "bear.png", "penguin.png", "penguin.png"]
+        var btn = document.querySelector(".baslangic");
+        var skr_html = document.querySelector("#skor");
+        var skor = 0;
+        const all_cards = document.querySelectorAll('.memory-card');
+        var cards = []
+        var section = document.querySelector('.memgame');
+
+        function gameOver(size) {
+            skor = 0;
+            cards.forEach((c, idx) => {
+                if (idx < size) {
+                    c.classList.remove('flip');
+                    c.style.visibility = "hidden";
+                }
+            });
+            skr_html.innerHTML = "Skor: " + skor;
+            skr_html.style.visibility = "hidden";
+            btn.style.visibility = "visible";
+            for (let index = 0; index < size; index++) {
+                cards.pop();
+            }
+
+        }
+        function start_game(size) {
+            let counter = 0;
+            btn.style.visibility = "hidden";
+            skr_html.style.visibility = "visible";
+
+            all_cards.forEach((c, idx) => {
+                if (idx < size) {
+                    cards.push(c);
+                }
+            });
+            cards.forEach(c => c.style.visibility = "visible");
+
+            let anyCardChoosen = false;
+            let lockBoard = false;
+            let first_choosen, second_choosen;
+
+            function flipCard() {
+                if (lockBoard) return;
+                if (this === first_choosen) return;
+                c = this
+                console.log(this)
+                console.log(this.classList)
+                this.classList.add('flip');
+
+                if (!anyCardChoosen) {
+                    anyCardChoosen = true;
+                    first_choosen = this;
+                    return;
+                }
+                second_choosen = this;
+                isSame()
+            }
+
+            function isSame() {
+                if (first_choosen.dataset.framework === second_choosen.dataset.framework) {
+                    disableCards();
+                    skor += 10;
+                    counter += 1;
+                    skr_html.innerHTML = "Skor: " + skor;
+                    if (counter == size / 2) {
+
+                        skr_html.innerHTML = "<h2>Game is over. Your score is " + skor + "</h2>";
+
+                        setTimeout(() => {
+                            gameOver(size);
+                        }, 3000);
+                    }
+                } else {
+                    unflipCards();
+                    skor -= 5;
+                    skr_html.innerHTML = "Skor: " + skor;
+                }
+
+
+            }
+
+            function disableCards() {
+                first_choosen.onclick = () => { };
+                second_choosen.onclick = () => { };
+                resetBoard();
+            }
+
+            function unflipCards() {
+                lockBoard = true;
+
+                setTimeout(() => {
+                    first_choosen.classList.remove('flip');
+                    second_choosen.classList.remove('flip');
+
+                    resetBoard();
+                }, 1000);
+            }
+
+            function resetBoard() {
+                anyCardChoosen = false;
+                lockBoard = false;
+                first_choosen = null;
+                second_choosen = null;
+            }
+            (function mixTheCards() {
+                let array = [];
+                for (let index = 0; index < size; index++) {
+                    array.push(0);
+
+                }
+                cards.forEach(card => {
+                    let randomPos = Math.floor(Math.random() * size);
+                    while (array[randomPos] != 0) {
+                        randomPos = Math.floor(Math.random() * size);
+                    }
+                    array[randomPos] += 1;
+                    card.children[0].src = 'images/'.concat(list[randomPos]);
+                    card.dataset.framework = list[randomPos];
+                });
+            })();
+            cards.forEach(card => card.onclick = flipCard);
+        }
+
+
+    </script>
+</body>
+
+</html>

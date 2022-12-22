@@ -128,4 +128,10 @@
                     <a href="https://szulaldik.github.io/Advance_programming/HW3/Animation.html">Fetch & Animations</a>
                 </td>
             </tr>
+            <tr>
+                <td>Project</td>
+                <td>
+                    <a href="https://szulaldik.github.io/AdvanceProje/prjct/index.html">Memory Game</a>
+                </td>
+            </tr>
 </body></html>

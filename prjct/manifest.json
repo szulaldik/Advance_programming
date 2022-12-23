@@ -5,7 +5,7 @@
     "background_color": "cyan",
     "icons": [
       {
-        "src": "prjct/images/flying-star.png",
+        "src": "images/flying-star.png",
         "sizes": "192x192",
         "type": "image/png"
       }

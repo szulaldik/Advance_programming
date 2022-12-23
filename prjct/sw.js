@@ -1,8 +1,8 @@
 const CACHE ='prjct'
 
-const FILES = [ 'prjct/index.html', 'prjct/images/flying-star.png', 'prjct/images/bear.png', 'prjct/images/bee.png',
-'prjct/images/bird.png', 'prjct/images/cat.png', 'prjct/images/corgi.png', 'prjct/images/flamingo.png', 'prjct/images/penguin.png',
-'prjct/images/owl.png', 'prjct/images/soru.jpg', 'prjct/images/clown-fish.png', 'prjct/images/lion.png', 'prjct/manifest.json','./']
+const FILES = [ 'index.html', 'images/flying-star.png', 'images/bear.png', 'images/bee.png',
+'images/bird.png', 'images/cat.png', 'images/corgi.png', 'images/flamingo.png', 'images/penguin.png',
+'images/owl.png', 'images/soru.jpg', 'images/clown-fish.png', 'images/lion.png', 'manifest.json','./']
 
 function installCB(e) {
   e.waitUntil(

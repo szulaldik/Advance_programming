@@ -1,6 +1,6 @@
 {
     "name": "Memory Game",
-    "start_url": "prjct/index.html",
+    "start_url": "index.html",
     "display": "standalone",
     "background_color": "cyan",
     "icons": [

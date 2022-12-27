@@ -39,7 +39,7 @@
             cursor: pointer;
         }
         .game {
-            width: 640px;
+            width: inherit;
             height: 640px;
             margin: auto;
             display: flex;
@@ -237,6 +237,7 @@
 
         }
         function start_game(size) {
+            document.querySelector('.game').style.height="calc(100% /size)";
             let counter = 0;
             btn.style.visibility = "hidden";
             skr_html.style.visibility = "visible";

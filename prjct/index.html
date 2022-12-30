@@ -111,6 +111,7 @@
                 <h2>Hard</h2>
             </button>
         </div>
+	<p><a href="https://marina-ferreira.github.io/tutorials/js/memory-game/">Reference</a></p>
         <div id="skor" style="display: block; visibility: hidden;">Skor: 0</div>
         </center>
     </div>
@@ -207,9 +208,8 @@
             <img class="back-face" src="images/soru.jpg">
         </div>
     </section>
-  		 <center> 
-		 <p><a href="https://marina-ferreira.github.io/tutorials/js/memory-game/">Reference</a></p>
-		 </center>
+     <button class="buttons" id="hint"
+        style="height: 40px; width: 80px; font-size: larger; visibility: hidden;">Hint</button>
     <script>
         "use strict";
         navigator.serviceWorker.register('sw.js');
@@ -236,6 +236,8 @@
             for (let index = 0; index < size; index++) {
                 cards.pop();
             }
+	    hint_btn.style.top = "auto";
+            hint_btn.style.visibility = "hidden";
 
         }
         function start_game(size) {
@@ -250,11 +252,33 @@
                 }
             });
             cards.forEach(c => c.style.visibility = "visible");
+	    if (size == 20) {
+                hint_btn.style.position = "absolute";
+                hint_btn.style.top = "1250px";
+            }
 
             let anyCardChoosen = false;
             let lockBoard = false;
             let first_choosen, second_choosen;
+		
+	    function giveTip() {
+                if (!anyCardChoosen) {
+                    lockBoard=true;
+                    let tipCardFirst = cards.filter(x => x.className != "memory-card.flip")[0];
+                    let cardArray = cards.filter(x => x.dataset.framework == tipCardFirst.dataset.framework);
+                    cardArray.forEach(x => x.classList.add('flip'))
+                    setTimeout(() => {
+                        cardArray.forEach(x => x.classList.remove('flip'));
+                    }, 1000);
+                    lockBoard=false;
+                    this.removeEventListener('click', giveTip);
+                    hint_btn.style.visibility = "hidden";
+                }
 
+            }
+            hint_btn.addEventListener('click', giveTip);
+            hint_btn.style.visibility = "visible";
+		
             function flipCard() {
                 if (lockBoard) return;
                 if (this === first_choosen) return;
@@ -281,6 +305,7 @@
                     if (counter == size / 2) {
 
                         skr_html.innerHTML = "<h2>Game is over. Your score is " + skor + "</h2>";
+			hint_btn.style.visibility="hidden";
 
                         setTimeout(() => {
                             gameOver(size);

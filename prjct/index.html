@@ -220,8 +220,8 @@
         var skr_html = document.querySelector("#skor");
         var skor = 0;
         const all_cards = document.querySelectorAll('.memory-card');
-        var cards = []
-
+        var cards = [];
+	var hint_btn = document.getElementById('hint');
         function gameOver(size) {
             skor = 0;
             cards.forEach((c, idx) => {

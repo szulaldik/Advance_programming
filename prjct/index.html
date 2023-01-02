@@ -40,7 +40,7 @@
         }
         .game {
             width: inherit;
-            aspect-ratio: 1;
+            height: 640px;
             margin: auto;
             display: flex;
             flex-wrap: wrap;
@@ -50,7 +50,7 @@
 
         .memory-card {
             width: calc(25% - 10px);
-            height: calc(33.333% - 10px);
+            aspect-ratio: 1;
             margin: 5px;
             position: relative;
             transform: scale(1);
@@ -111,6 +111,8 @@
                 <h2>Hard</h2>
             </button>
         </div>
+	<button class="buttons" id="hint"
+        style="height: 40px; width: 80px; font-size: larger; visibility: hidden;">Hint</button>
 	<p><a href="https://marina-ferreira.github.io/tutorials/js/memory-game/">Reference</a></p>
         <div id="skor" style="display: block; visibility: hidden;">Skor: 0</div>
         </center>
@@ -208,14 +210,13 @@
             <img class="back-face" src="images/soru.jpg">
         </div>
     </section>
-     <button class="buttons" id="hint"
-        style="height: 40px; width: 80px; font-size: larger; visibility: hidden;">Hint</button>
+     
     <script>
         "use strict";
         navigator.serviceWorker.register('sw.js');
         var c;
-        const list = ["cat.png", "cat.png", "flamingo.png", "flamingo.png", "owl.png", "owl.png", "bee.png", "bee.png", "bird.png", "bird.png",
-            "lion.png", "lion.png", "clown-fish.png", "clown-fish.png", "corgi.png", "corgi.png", "bear.png", "bear.png", "penguin.png", "penguin.png"]
+        const list =["cat.png", "flamingo.png", "owl.png", "bee.png", "bird.png", "lion.png", "clown-fish.png",
+            "corgi.png", "bear.png", "penguin.png"];
         var btn = document.querySelector("#baslangic");
         var skr_html = document.querySelector("#skor");
         var skor = 0;
@@ -337,6 +338,24 @@
                 second_choosen = null;
             }
             (function mixTheCards() {
+		    
+                let img_arr = [];
+                if (size != 20) {
+                    let s = new Set();
+                    while (s.size != size / 2) {
+                        let randomPos = Math.floor(Math.random() * 9);
+                        s.add(list[randomPos]);
+                    }
+                    for (let item of s) {
+                        img_arr.push(item);
+                        img_arr.push(item);
+                    }
+                }else{
+                    for (let item of list) {
+                        img_arr.push(item);
+                        img_arr.push(item);
+                    }
+                }
                 let array = [];
                 for (let index = 0; index < size; index++) {
                     array.push(0);
@@ -348,8 +367,8 @@
                         randomPos = Math.floor(Math.random() * size);
                     }
                     array[randomPos] += 1;
-                    card.children[0].src = 'images/'.concat(list[randomPos]);
-                    card.dataset.framework = list[randomPos];
+                    card.children[0].src = 'images/'.concat(img_arr[randomPos]);
+                    card.dataset.framework = img_arr[randomPos];
                 });
             })();
             cards.forEach(card => card.onclick = flipCard);
